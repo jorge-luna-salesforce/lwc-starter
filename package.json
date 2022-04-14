@@ -1,0 +1,7 @@
+{
+  "name": "@wcd/jorge-luna-salesforce.lwc-l1y73mnq-fork-l1zijzmp",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "npx wcd-cli@latest serve w7m2ECHXxdCu7Nnrhewn --open"
+  }
+}
