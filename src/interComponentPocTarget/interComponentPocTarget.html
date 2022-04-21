@@ -1,0 +1,64 @@
+<template>
+  <div class="slds-box slds-theme_default">
+    <ul class="slds-has-dividers_around-space" dropzone="true">
+      <template for:each={data} for:item="dataitem">
+        <li
+          class="slds-item slds-page-header"
+          key={dataitem.id}
+          dropzone="true"
+          ondrop={handleDropItem}
+          ondragover={handleDragOver}
+          ondragenter={handleDragEnter}
+          value={dataitem.id}
+        >
+          <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+              <div class="slds-media">
+                <template if:true={dataitem.value}>
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-avatar">
+                      <img
+                        class="slds-page-header__icon"
+                        src={dataitem.picture}
+                        alt={dataitem.name}
+                        title="Item Picture"
+                      />
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <div class="slds-page-header__name">
+                      <div class="slds-page-header__name-title">
+                        <h1>
+                          <span
+                            class="slds-page-header__title"
+                            title={dataitem.name}
+                            >{dataitem.name}</span
+                          >
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <template if:false={dataitem.value}>
+                  <div class="slds-media__body">
+                    <div class="slds-page-header__name">
+                      <div class="slds-page-header__name-title">
+                        <h1>
+                          <span
+                            class="slds-page-header__title"
+                            title={dataitem.name}
+                            >Empty Slot (drop Something...)</span
+                          >
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </li>
+      </template>
+    </ul>
+  </div>
+</template>
