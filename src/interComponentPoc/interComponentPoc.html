@@ -1,0 +1,45 @@
+<template>
+  <div class="slds-box slds-theme_default">
+    <ul class="slds-has-dividers_around-space" dropzone="move">
+      <template for:each={data} for:item="dataitem">
+        <li
+          class="slds-item slds-page-header"
+          key={dataitem.id}
+          draggable="true"
+          ondragstart={handleDragStart}
+          value={dataitem.id}
+        >
+          <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+              <div class="slds-media">
+                <div class="slds-media__figure">
+                  <span class="slds-icon_container slds-avatar">
+                    <img
+                      class="slds-page-header__icon"
+                      src={dataitem.picture}
+                      alt={dataitem.name}
+                      title="Item Picture"
+                    />
+                  </span>
+                </div>
+                <div class="slds-media__body">
+                  <div class="slds-page-header__name">
+                    <div class="slds-page-header__name-title">
+                      <h1>
+                        <span
+                          class="slds-page-header__title"
+                          title={dataitem.name}
+                          >{dataitem.name}</span
+                        >
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </template>
+    </ul>
+  </div>
+</template>
