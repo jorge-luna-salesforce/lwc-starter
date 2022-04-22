@@ -29,11 +29,14 @@ export default class InterComponentPocTarget extends LightningElement {
       event.dataTransfer.getData("application/json")
     );
     console.log(`DROP RECEIVED! data items received:`, dataReceived);
-    let toModify = this.data.find((x) => x.id == event.currentTarget.value);
+    let toModify = this.data.find((x) => x.id === event.currentTarget.value);
     if (toModify) {
-      toModify.name = dataReceived?.name;
-      toModify.picture = dataReceived?.picture;
-      toModify.value = "dragged";
+      toModify.name = dataReceived.name;
+      toModify.picture = dataReceived.picture;
+      toModify.value = true;
+      this.dispatchEvent(
+        new CustomEvent("elementreceived", { detail: dataReceived.id })
+      );
     }
   };
 
@@ -43,5 +46,17 @@ export default class InterComponentPocTarget extends LightningElement {
 
   handleDragEnter = (event) => {
     event.preventDefault();
+  };
+
+  @api
+  removeElement = (source) => {
+    this.data.forEach((x) => {
+      if (x.name === source) {
+        x.name = "";
+        x.picture = "";
+        x.value = false;
+      }
+      //x.value = false;
+    });
   };
 }

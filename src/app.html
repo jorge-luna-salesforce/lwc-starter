@@ -7,10 +7,14 @@
     </h3>
     <div class="slds-grid slds-gutters">
       <div class="slds-col">
-        <c-inter-component-poc></c-inter-component-poc>
+        <c-inter-component-poc
+          ondeleteitem={handleDeleteItem}
+        ></c-inter-component-poc>
       </div>
       <div class="slds-col">
-        <c-inter-component-poc-target></c-inter-component-poc-target>
+        <c-inter-component-poc-target
+          onelementreceived={handleElementReceived}
+        ></c-inter-component-poc-target>
       </div>
     </div>
   </div>
