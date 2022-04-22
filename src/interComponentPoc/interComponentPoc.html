@@ -5,7 +5,7 @@
         <li
           class="slds-item slds-page-header"
           key={dataitem.id}
-          draggable="true"
+          draggable={dataitem.draggable}
           ondragstart={handleDragStart}
           value={dataitem.id}
         >
@@ -37,6 +37,12 @@
                 </div>
               </div>
             </div>
+            <template if:false={dataitem.draggable}>
+              <c-delete-item-button
+                deleteitem={dataitem.id}
+                ondeleteitem={handleDeleteEvent}
+              ></c-delete-item-button>
+            </template>
           </div>
         </li>
       </template>

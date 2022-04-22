@@ -1,11 +1,10 @@
 <template>
   <div class="slds-box slds-theme_default">
-    <ul class="slds-has-dividers_around-space" dropzone="true">
+    <ul class="slds-has-dividers_around-space">
       <template for:each={data} for:item="dataitem">
         <li
           class="slds-item slds-page-header"
           key={dataitem.id}
-          dropzone="true"
           ondrop={handleDropItem}
           ondragover={handleDragOver}
           ondragenter={handleDragEnter}
@@ -44,9 +43,7 @@
                     <div class="slds-page-header__name">
                       <div class="slds-page-header__name-title">
                         <h1>
-                          <span
-                            class="slds-page-header__title"
-                            title={dataitem.name}
+                          <span class="slds-page-header__title"
                             >Empty Slot (drop Something...)</span
                           >
                         </h1>
