@@ -56,7 +56,6 @@ export default class InterComponentPocTarget extends LightningElement {
         x.picture = "";
         x.value = false;
       }
-      //x.value = false;
     });
   };
 }
